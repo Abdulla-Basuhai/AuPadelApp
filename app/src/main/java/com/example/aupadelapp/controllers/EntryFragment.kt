@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.aupadelapp.R
 import com.example.aupadelapp.databinding.FragmentEntryBinding
 import com.example.aupadelapp.databinding.FragmentHomeBinding
 
@@ -69,10 +71,12 @@ class EntryFragment: Fragment() {
         binding.loginBtn.setOnClickListener {
 
             // navigate to the Login Screen
+            findNavController().navigate(R.id.action_entryFragment_to_loginFragment)
         }
         binding.registerBtn.setOnClickListener {
 
             // navigate to the Registration Screen
+            findNavController().navigate(R.id.action_entryFragment_to_registrationFragment)
         }
     }
 
