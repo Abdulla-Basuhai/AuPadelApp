@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AU Padel App</string>
+    <string name="create_account_btn">Create an Account</string>
+    <string name="Log_in_btn">Log In</string>
+    <string name="Register_btn">Register</string>
+
+
+    <string name="user_name_form">User Name</string>
+    <string name="email_form">Email</string>
+    <string name="password_form">Password</string>
+    <string name="confirm_password_form">Confirm Password</string>
+    <string name="phone_number_form">Phone Number</string>
+    <string name="select_role_form">Select Role</string>
+    <string name="select_gender_form">Select Gender</string>
+
 </resources>
