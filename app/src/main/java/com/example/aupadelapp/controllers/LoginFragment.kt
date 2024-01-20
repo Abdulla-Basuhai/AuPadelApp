@@ -1,11 +1,14 @@
 package com.example.aupadelapp.controllers
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.aupadelapp.databinding.FragmentLoginBinding
+import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment: Fragment() {
      // Using nullable _binding to handle the possibility of it being null
@@ -29,7 +32,7 @@ class LoginFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
        // Inflate the layout and assign the result to _binding
         _binding = FragmentLoginBinding.inflate(inflater,container,false)
         // Return the root view of the inflated layout
@@ -41,7 +44,49 @@ class LoginFragment: Fragment() {
 
          // At this point, the UI is created and visible. Access and manipulate UI elements using binding.
         // For example, you can perform form validation here.
+        binding.loginButton.setOnClickListener {
+            formValidationAndLogIn()
+        }
     }
+
+    private fun formValidationAndLogIn() {
+        // Clear any previous errors
+        clearErrors()
+
+        val email = binding.emailInputLayout.editText?.text.toString().trim()
+        val password = binding.passwordInputLayout.editText?.text.toString().trim()
+
+        if (email.isEmpty()) {
+            setError(binding.emailInputLayout, "Email is required!")
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            setError(binding.emailInputLayout, "Invalid email format")
+            return
+        }
+        if (password.length < 6) {
+            setError(binding.passwordInputLayout, "Password must be at least 6 characters")
+            return
+        }
+        if (password.isEmpty()) {
+            setError(binding.passwordInputLayout, "Password is required!")
+        }
+
+        // If we reached here, that means we have passed the validation
+        Toast.makeText(requireContext(),"you have passed the validation",Toast.LENGTH_SHORT).show()
+
+    }
+
+
+    private fun setError(textInputLayout: TextInputLayout, errorMessage: String) {
+        textInputLayout.error = errorMessage
+    }
+
+    private fun clearErrors() {
+        binding.emailInputLayout.error = null
+        binding.passwordInputLayout.error = null
+    }
+
 
     /*
     * When you navigate from this fragment to other fragment, the LoginFragment's view (layout) will disappear from
