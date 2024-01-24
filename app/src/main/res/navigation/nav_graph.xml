@@ -20,13 +20,11 @@
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.aupadelapp.controllers.RegistrationFragment"
-        android:label="RegistrationFragment"
-        tools:layout="@layout/fragment_registration"
-        />
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.aupadelapp.controllers.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login"
-        />
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

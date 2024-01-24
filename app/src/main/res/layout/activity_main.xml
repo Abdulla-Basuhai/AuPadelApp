@@ -1,19 +1,33 @@
-<androidx.fragment.app.FragmentContainerView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!-- The Toolbar element defines a toolbar at the top of your activity,
+    identified by the ID @+id/toolbar.
+    It can be used for displaying titles, icons, and other action items.
+    -->
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbar"/>
+
+
+<androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container"
     android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_below="@id/toolbar"
     app:defaultNavHost="true"
     app:navGraph="@navigation/nav_graph"
-    tools:context=".MainActivity"/>
+    />
     <!--
         android:name="androidx.navigation.fragment.NavHostFragment" ==> define a container in the activity to host the navigation Graph instead of a single fragment
         app:defaultNavHost="true"  ==> Indicates that this Activity will act as the default navigation host
         app:navGraph="@navigation/nav_graph"  ==> Specifies the navigation graph resource file
      -->
 
-
-
+</RelativeLayout>
