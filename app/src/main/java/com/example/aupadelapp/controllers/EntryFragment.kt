@@ -73,7 +73,7 @@ class EntryFragment: Fragment() {
             // navigate to the Login Screen
             findNavController().navigate(R.id.action_entryFragment_to_loginFragment)
         }
-        binding.registerBtn.setOnClickListener {
+        binding.signUpTextView.setOnClickListener {
 
             // navigate to the Registration Screen
             findNavController().navigate(R.id.action_entryFragment_to_registrationFragment)
