@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <translate
+        android:fromXDelta="100%"
+        android:toXDelta="0%"
+        android:duration ="800"/>
+
+    <!--
+        fromXDelta="100%": The animation starts with the left edge of the fragment positioned 100%
+        to the right of its original position. This means the fragment will start from the right-most edge,
+        outside the visible screen.
+
+        toXDelta="0%": The animation ends with the left edge of the fragment positioned at its original location,
+        which is the top-left corner of its container or the screen.
+
+        So, in simple terms, the animation begins with the fragment fully outside the screen on the right side
+        and smoothly moves to its original position, which is the top-left corner of the container or screen.
+
+        The 'duration' attribute specifies the duration of the animation in milliseconds.
+        In this case, it's set to 800 milliseconds.
+    -->
+
+</set>
