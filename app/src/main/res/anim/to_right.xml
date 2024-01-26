@@ -4,7 +4,7 @@
     <translate
         android:fromXDelta="0%"
         android:toXDelta="100%"
-        android:duration ="800"/>
+        android:duration ="600"/>
     <!--
        fromXDelta="0%": The animation starts with the left edge of the fragment positioned at its original location,
        which is the top-left corner of its container or the screen.

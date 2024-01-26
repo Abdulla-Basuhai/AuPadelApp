@@ -28,11 +28,28 @@
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.aupadelapp.controllers.RegistrationFragment"
-        android:label="Registration"
-        tools:layout="@layout/fragment_registration" />
+        android:label="@string/Registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_accountVerificationFragment"
+            app:destination="@id/accountVerificationFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.aupadelapp.controllers.LoginFragment"
-        android:label="Login"
+        android:label="@string/Login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/accountVerificationFragment"
+        android:name="com.example.aupadelapp.controllers.AccountVerificationFragment"
+        android:label="Account Verification"
+        tools:layout="@layout/fragment_account_verification">
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
 </navigation>

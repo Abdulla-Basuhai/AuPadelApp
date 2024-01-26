@@ -1,7 +1,6 @@
 package com.example.aupadelapp.controllers
 
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.aupadelapp.databinding.FragmentRegistrationBinding
 import com.google.android.material.textfield.TextInputLayout
 
@@ -168,9 +168,14 @@ class RegistrationFragment: Fragment(){
             return
         }
         // if we reached here, that's mean we have passed the validation
-        // call the register User method in the UserLab Singleton
         Toast.makeText(requireContext(),"You have passed the validation !", Toast.LENGTH_SHORT).show()
-        Log.d("TAG",name)
+        // Create a new user account & send verification link to the registered email
+
+        // navigate the user to the Account Verification Screen
+        val action = RegistrationFragmentDirections.actionRegistrationFragmentToAccountVerificationFragment(email)
+        findNavController().navigate(action)
+
+
     }
 
     private fun setError(textInputLayout: TextInputLayout, errorMessage: String) {

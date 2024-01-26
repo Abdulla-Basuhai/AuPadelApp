@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    // Add the Save Arguments plugin
+    id("androidx.navigation.safeargs")
 }
 
 android {

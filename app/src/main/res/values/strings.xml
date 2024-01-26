@@ -12,5 +12,7 @@
     <string name="phone_number_form">Phone Number</string>
     <string name="select_role_form">Select Role</string>
     <string name="select_gender_form">Select Gender</string>
+    <string name="Registration">Registration</string>
+    <string name="Login">Login</string>
 
 </resources>
