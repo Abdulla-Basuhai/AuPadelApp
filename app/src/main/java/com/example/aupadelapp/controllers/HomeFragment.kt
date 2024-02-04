@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.aupadelapp.R
 import com.example.aupadelapp.databinding.FragmentHomeBinding
+import com.example.aupadelapp.repositories.UserRepository
 
 class HomeFragment: Fragment() {
     // view binding will generate a binding class (FragmentHomeBinding) that you can use to inflate and bind your layout (fragment_home.xml)
@@ -65,14 +68,13 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.loginBtn.setOnClickListener {
+        binding.SignOutTextView.setOnClickListener {
 
-            // navigate to the Login Screen
+            // navigate to the Entry Screen
+            UserRepository.signOutUser()
+            view.findNavController().navigate(R.id.action_homeFragment_to_entryFragment)
         }
-        binding.registerBtn.setOnClickListener {
 
-            // navigate to the Registration Screen
-        }
     }
 
     override fun onDestroyView() {

@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.aupadelapp.databinding.FragmentLoginBinding
+import com.example.aupadelapp.repositories.UserRepository
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment: Fragment() {
@@ -74,6 +76,17 @@ class LoginFragment: Fragment() {
 
         // If we reached here, that means we have passed the validation
         Toast.makeText(requireContext(),"you have passed the validation",Toast.LENGTH_SHORT).show()
+
+        UserRepository.loginUser(email,password){ isSuccess, message ->
+            if (isSuccess){
+                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                findNavController().navigate(action)
+            }
+            else{
+                Toast.makeText(requireContext(), "$message", Toast.LENGTH_LONG).show()
+            }
+
+        }
 
     }
 
