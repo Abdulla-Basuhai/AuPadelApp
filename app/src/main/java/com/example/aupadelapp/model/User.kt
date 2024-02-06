@@ -1,11 +1,11 @@
 package com.example.aupadelapp.model
 
 data class User(
-    val userId: String,
-    val userName:String,
-    val email: String,
-    val password: String,
-    val role: String,
-    val phoneNumber: String,
-    val gender: String =""
+    var userId: String,
+    var userName:String,
+    var email: String,
+    var password: String,
+    var role: String,
+    var phoneNumber: String,
+    var gender: String
 )

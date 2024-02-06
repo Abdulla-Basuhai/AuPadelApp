@@ -7,10 +7,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.aupadelapp.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Inflate the layout using the ViewBinding
@@ -41,6 +43,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        firebaseAuth = FirebaseAuth.getInstance()
+        // check if the user is not authenticated
+        if (firebaseAuth.currentUser == null){
+            navController.navigate(R.id.entryFragment)
+        }
+
     }
     // Handle the up navigation (back button)
     override fun onSupportNavigateUp(): Boolean {

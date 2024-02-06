@@ -1,6 +1,7 @@
 package com.example.aupadelapp.controllers
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.aupadelapp.databinding.FragmentRegistrationBinding
+import com.example.aupadelapp.model.User
+import com.example.aupadelapp.repositories.UserRepository
 import com.google.android.material.textfield.TextInputLayout
 
 class RegistrationFragment: Fragment(){
@@ -168,13 +171,42 @@ class RegistrationFragment: Fragment(){
             return
         }
         // if we reached here, that's mean we have passed the validation
-        Toast.makeText(requireContext(),"You have passed the validation !", Toast.LENGTH_SHORT).show()
+        // show progress bar
         // Create a new user account & send verification link to the registered email
+        val user = User("",name,email,password,role,phoneNumber,gender)
+        //The below callback is a piece of code that gets executed when the registration process is complete.
+        Log.d("registerNewUser","before call the registerNewUser function")
 
-        // navigate the user to the Account Verification Screen
-        val action = RegistrationFragmentDirections.actionRegistrationFragmentToAccountVerificationFragment(email)
-        findNavController().navigate(action)
+        UserRepository.registerNewUser(user){ isSuccess, message ->
+            if (isSuccess){
+                // Registration was successful
+                Log.d("registerNewUser","callback called after Registration was successful")
+                // navigate the user to the Account Verification Screen
+                val action = RegistrationFragmentDirections.actionRegistrationFragmentToAccountVerificationFragment(email)
+                findNavController().navigate(action)
+            }
+            else{
+                Log.d("registerNewUser","callback called after Registration failed")
+                Toast.makeText(requireContext(), "Registration failed: $message", Toast.LENGTH_LONG).show()
+            }
+        }
 
+        /*
+        In the context of the above code, the callback is initiated when the registerNewUser function of the UserRepository
+        is called. The registerNewUser function performs an asynchronous operation, such as registering a new user with
+        Firebase Authentication, and it takes some time to complete (Network Request).
+
+        The callback itself is provided as a parameter to the registerNewUser function.
+        The callback will be invoked (or executed) when the asynchronous operation inside registerNewUser completes,
+        either successfully or with an error.In other words, the callback starts when the asynchronous task
+        (user registration) finishes,and it is invoked with the result of that task.
+
+          ## If the registration is successful, the callback is called with true and an empty message.
+          ## If there is an error during registration, the callback is called with false and an error message.
+
+          The code inside the callback then determines what actions to take based on the success or failure of the registration
+           process.
+         */
 
     }
 

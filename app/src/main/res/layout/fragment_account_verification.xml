@@ -26,7 +26,7 @@
         android:id="@+id/resendLinkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resend link"
+        android:text="@string/Log_in_btn"
         android:textAllCaps="false"
         android:background="@drawable/button_background"
         android:textSize="18sp"

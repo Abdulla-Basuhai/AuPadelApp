@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.activity.OnBackPressedCallback
 import com.example.aupadelapp.R
 import com.example.aupadelapp.databinding.FragmentEntryBinding
-import com.example.aupadelapp.databinding.FragmentHomeBinding
 
 class EntryFragment: Fragment() {
     // view binding will generate a binding class (FragmentHomeBinding) that you can use to inflate and bind your layout (fragment_home.xml)
@@ -78,7 +78,35 @@ class EntryFragment: Fragment() {
             // navigate to the Registration Screen
             findNavController().navigate(R.id.action_entryFragment_to_registrationFragment)
         }
+        // Override the back navigation behavior for EntryFragment (to avoid go back to the home fragment(start destination))
+        // sets up a custom action (closing the app) to be performed when the back button is pressed.
+        val callback = object : OnBackPressedCallback(true){
+        override fun handleOnBackPressed(){
+            //finishes the current activity (MainActivity)
+            requireActivity().finish()
+        }
+            /*
+           Here, a new instance (callback) of an anonymous class derived from the OnBackPressedCallback class is created.
+           This anonymous class overrides the handleOnBackPressed method to provide custom behavior when the back button is pressed.
+           The true passed to the constructor indicates that the callback is enabled by default.
+             */
     }
+
+     requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
+        /*
+        The above line sets up a listener for when the back button is pressed on the device. Here's what each part does:
+
+        1. requireActivity(): This gets the activity (MainActivity) that contains the current fragment.
+        2. .onBackPressedDispatcher: This gets the dispatcher responsible for handling back button presses for the activity.
+        3. .addCallback(viewLifecycleOwner, callback): This adds a callback to the back button dispatcher.
+           3.1 viewLifecycleOwner: This ensures that the callback is tied to the lifecycle of the current fragment.
+           3.2 callback: This is the custom action that will be executed when the back button is pressed.
+
+      In simpler terms, this line of code sets up a way for the app to respond to the back button being pressed
+      while the current fragment is visible.
+         */
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
