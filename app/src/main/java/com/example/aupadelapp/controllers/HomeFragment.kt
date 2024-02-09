@@ -68,12 +68,6 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.SignOutTextView.setOnClickListener {
-
-            // navigate to the Entry Screen
-            UserRepository.signOutUser()
-            view.findNavController().navigate(R.id.action_homeFragment_to_entryFragment)
-        }
 
     }
 

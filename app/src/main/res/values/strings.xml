@@ -14,5 +14,8 @@
     <string name="select_gender_form">Select Gender</string>
     <string name="Registration">Registration</string>
     <string name="Login">Login</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="Notifications_icon">Notifications</string>
 
 </resources>
