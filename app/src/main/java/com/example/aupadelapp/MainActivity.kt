@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             // Check if the current fragment is the one where you want to hide the toolbar
             when (destination.id) {
-                R.id.entryFragment -> {
+                R.id.entryFragment,R.id.homeFragment -> {
                     // Hide the toolbar if the current fragment is entry fragment
                     supportActionBar?.hide()
                 }
