@@ -173,11 +173,11 @@ class RegistrationFragment: Fragment(){
         // if we reached here, that's mean we have passed the validation
         // show progress bar
         // Create a new user account & send verification link to the registered email
-        val user = User("",name,email,password,role,phoneNumber,gender)
+        val user = User("",name,email,role,phoneNumber,gender)
         //The below callback is a piece of code that gets executed when the registration process is complete.
         Log.d("registerNewUser","before call the registerNewUser function")
 
-        UserRepository.registerNewUser(user){ isSuccess, message ->
+        UserRepository.registerNewUser(user,password){ isSuccess, message ->
             if (isSuccess){
                 // Registration was successful
                 Log.d("registerNewUser","callback called after Registration was successful")
