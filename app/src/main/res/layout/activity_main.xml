@@ -21,6 +21,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@id/toolbar"
+    android:layout_above="@id/bottom_navigation_view"
     app:defaultNavHost="true"
     app:navGraph="@navigation/nav_graph"
     />
@@ -29,5 +30,22 @@
         app:defaultNavHost="true"  ==> Indicates that this Activity will act as the default navigation host
         app:navGraph="@navigation/nav_graph"  ==> Specifies the navigation graph resource file
      -->
+
+    <!--
+     Second step (after creating the menu file) is to add BottomNavigationView
+     in the MainActivity Layout (container), because like the tool bar it is shared
+     between different destinations (screens or fragments), it does not switch together
+     with the fragment.
+     to associate the BottomNavigationView with the menu file created we add this
+     attribute: app:menu="@menu/bottom_nav_menu"
+    -->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
+
 
 </RelativeLayout>

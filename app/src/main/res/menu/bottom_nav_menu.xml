@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/home_icon"
+        />
+    <item
+        android:id="@+id/notificationFragment"
+        android:title="@string/Notifications_icon"
+        android:icon="@drawable/notifications_icon"
+        />
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/person_icon"
+        />
+</menu>
+    <!--
+    The first step after building the fragments and adding them to the nav graph file is to create the menu XML file
+    that defines the structure and content of the bottom navigation bar, specifying the options (menu items)
+    available to the user, along with their associated icons and text labels.
+
+    Each <item> element represents a single option in the bottom navigation bar, which typically corresponds
+     to a specific fragment or destination within the app (Home, Notification, Profile).
+
+     The id attributes assigned to each <item> element serve as unique identifiers for the corresponding fragments or destinations
+     in the navigation graph. When a user selects an option in the bottom navigation bar, the associated fragment or destination
+     is typically displayed on the screen.
+     These identifiers are crucial for connecting the menu items to their corresponding fragments or destinations in the navigation graph.
+
+     ITEM'S ID SHOULD MATCH THE DESTINATION FRAGMENT'S ID IN THE NAV GRAPH
+
+     android:title: This attribute sets the text label for the menu item, which is typically displayed alongside the icon.
+    -->
+
