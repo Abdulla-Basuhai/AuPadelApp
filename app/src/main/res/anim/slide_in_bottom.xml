@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <translate
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromYDelta="100%p"
+        android:toYDelta="0"
+        />
+</set>
+
+    <!--
+    In Android animation, the <set> element is used to group multiple animations together.
+    The 'translate' element is used for moving (translating) the UI element along the Y-axis and X-axis.
+
+
+     android:duration="@android:integer/config_mediumAnimTime":
+     Specifies the duration of the animation, using the medium animation time defined in the Android system resources.
+
+     If the original position of the element was, for example, in the Bottom of the screen vertically:
+             ## dialog.window?.setGravity(Gravity.BOTTOM) //used to position the dialog at the bottom of the screen.
+
+      setting android:toYDelta="0" ensures that, at the end of the animation, the element stays exactly
+      in the bottom of the screen vertically.There is no upward or downward movement; the element retains its original vertical position.
+
+     android:fromYDelta="100%p":
+     it means that the animation starts with the element positioned 100% (full height) below its original position.
+     In simpler terms, the element begins the animation from a location completely off-screen, below the visible area.
+     For example, if the original position of the element is at the bottom of the screen, setting android:fromYDelta="100%p"
+     would mean that the animation starts with the element positioned below the screen, and it would then move upwards
+     during the animation to its original on-screen position.
+
+     android:toYDelta="0":
+     The animation ends with the element positioned at its original location on the Y-axis.
+     So, in simple terms, the animation moves the element from below the screen to its original on-screen position.
+
+ -->

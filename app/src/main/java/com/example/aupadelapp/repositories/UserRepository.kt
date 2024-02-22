@@ -195,4 +195,16 @@ object UserRepository{
 
     }
 
+    fun updateUserProfile(updatedUser: User, callback: (Boolean, String) -> Unit) {
+        databaseReference.child(updatedUser.userId).setValue(updatedUser)
+            .addOnCompleteListener{updateUserTask ->
+                if (updateUserTask.isSuccessful){
+                    callback(true,"update User Task is Successful ")
+                }
+                else
+                {
+                    callback(false, "update Use Task failed: ${updateUserTask.exception?.message}")
+                }
+            }
+    }
 }

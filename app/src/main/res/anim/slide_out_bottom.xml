@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <translate
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:fromYDelta="0"
+        android:toYDelta="100%p"
+        />
+
+</set>
+
+  <!--
+    this animation makes a UI element (dialog) disappear from the screen by sliding it downwards.
+
+    The android:duration attribute sets the time it takes for the animation to complete, using a medium duration defined
+    in the Android system resources.
+
+    The android:fromYDelta attribute specifies the starting point on the Y-axis, set to 0, meaning the element starts
+     at its current position on the screen.
+
+    The android:toYDelta attribute sets the ending point on the Y-axis to 100% of the parent's height,
+    indicating that the element will be moved off-screen, effectively sliding down and disappearing from view.
+  -->

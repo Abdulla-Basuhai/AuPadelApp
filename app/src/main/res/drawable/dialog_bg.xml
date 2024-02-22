@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/white"/>
+    <corners
+        android:topRightRadius="30dp"
+        android:topLeftRadius="30dp"
+        />
+    <padding
+        android:top="10dp"
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"/>
+</shape>
+
+   <!--
+    This XML code defines a shape drawable resource that can be used as the background for a dialog in Android. Here's an explanation:
+
+1. `<shape>`: This is the root element of the XML file, indicating that you are defining a shape drawable.
+
+2. `<solid android:color="@color/white"/>`: This line specifies that the entire shape will be filled with the color defined in your resources as `@color/white`. In other words, the background color of the shape will be white.
+
+3. `<corners android:topRightRadius="30dp" android:topLeftRadius="30dp"/>`: This sets rounded corners for the shape. The `android:topRightRadius` and `android:topLeftRadius` attributes determine the radius of the rounded corners at the top right and top left, respectively. In this case, both are set to `30dp`, creating a visually rounded appearance at the top of the shape.
+
+4. `<padding android:top="10dp" android:bottom="10dp" android:left="10dp" android:right="10dp"/>`: This line adds padding to the shape, specifying that there should be 10dp of space at the top, bottom, left, and right edges of the shape. Padding helps create some space between the content and the edges of the shape.
+
+In summary, this shape drawable defines a background for a dialog with a white color, rounded corners at the top, and some padding around the edges, providing a clean and visually appealing appearance.
+   -->

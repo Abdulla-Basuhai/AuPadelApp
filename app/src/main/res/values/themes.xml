@@ -6,4 +6,20 @@
     </style>
 
     <style name="Theme.AUPadelApp" parent="Base.Theme.AUPadelApp" />
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+    <!--
+      The provided XML style named "DialogAnimation" defines custom window animations for entering and exiting a dialog
+       in an Android app.
+
+      ## The android:windowEnterAnimation attribute is set to an animation resource (@anim/slide_in_bottom)
+      that determines how the dialog enters the screen, providing a visual effect.
+
+      ## Similarly, the android:windowExitAnimation attribute is set to another animation resource (@anim/slide_out_bottom)
+      that determines how the dialog exits the screen.
+    -->
+
+
 </resources>

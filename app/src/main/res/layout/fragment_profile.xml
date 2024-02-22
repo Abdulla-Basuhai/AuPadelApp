@@ -12,8 +12,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/profile" />
+        android:layout_marginTop="60dp"
+        app:srcCompat="@drawable/profile"/>
 
     <TextView
         android:id="@+id/textView_userName"
